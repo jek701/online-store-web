@@ -12,3 +12,12 @@ export interface Product {
     updated_at: string
     _id: string
 }
+
+export interface ProductCart {
+    _id: string
+    name: string
+    price: string
+    quantity: number
+    image: string
+    salePrice: string
+}
