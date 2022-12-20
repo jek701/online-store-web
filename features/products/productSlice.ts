@@ -24,14 +24,8 @@ export const productSlice = createSlice({
     name: "product",
     initialState,
     reducers: {
-        getProducts(state, action: PayloadAction<ProductCart[]>) {
-            state.products = action.payload
-        },
         deleteAllProducts(state) {
             state.products = []
-        },
-        deleteProduct(state, action: PayloadAction<string>) {
-            state.products = state.products.filter(i => i._id !== action.payload)
         },
         addProduct(state, action: PayloadAction<ProductCart>) {
             if (state.products.find(i => i._id === action.payload._id)) {
@@ -60,9 +54,7 @@ export const productSlice = createSlice({
 })
 
 export const {
-    getProducts,
     addProduct,
-    deleteProduct,
     deleteAllProducts,
     addQuantity,
     minusQuantity,
