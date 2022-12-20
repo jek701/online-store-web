@@ -8,11 +8,12 @@ import "swiper/swiper.min.css"
 import "swiper/css/pagination"
 import Button from "../button/Button"
 import {priceReturn} from "../../utils/priceReturn"
-import {addProduct, useGetProducts} from "../../features/products/productSlice"
+import {addProduct} from "../../features/products/productSlice"
 import {useDispatch} from "../../store"
 import {notification} from "antd"
 import {ShoppingCartOutlined} from "@ant-design/icons"
 import {NotificationPlacement} from "antd/es/notification/interface"
+import {useRouter} from "next/router"
 
 interface ProductWrapperProps {
     product: Product
@@ -20,6 +21,7 @@ interface ProductWrapperProps {
 
 const ProductBlock: React.FC<ProductWrapperProps> = ({product}) => {
     const [api, contextHolder] = notification.useNotification()
+    const router = useRouter()
     const dispatch = useDispatch()
 
     const openNotification = (placement: NotificationPlacement, product: string) => {
@@ -36,7 +38,7 @@ const ProductBlock: React.FC<ProductWrapperProps> = ({product}) => {
     }
 
     return (
-        <div className={styles.mainWrapper}>
+        <div onClick={() => router.push(`/product/${product._id}`)} className={styles.mainWrapper}>
             {contextHolder}
             <h2 className={styles.title}>{product.name}</h2>
             <Swiper

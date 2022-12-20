@@ -1,0 +1,19 @@
+.mainWrapper {
+    width: 100%;
+    max-width: 1180px;
+    margin: 25px auto;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-height: calc(100vh - 130px);
+    overflow-y: scroll;
+    gap: 25px;
+    position: relative;
+}
+
+.sliderWrapper {
+    position: sticky;
+    top: 0;
+    width: 50%;
+}

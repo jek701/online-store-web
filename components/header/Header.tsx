@@ -12,7 +12,9 @@ const Header = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.innerBlock}>
-                <h1>LOGO</h1>
+                <h1>
+                    <a href="/">LOGO</a>
+                </h1>
                 <Space split={<Divider type="vertical" />}>
                     <Typography.Link>Главное меню</Typography.Link>
                     <Typography.Link>Акции</Typography.Link>
