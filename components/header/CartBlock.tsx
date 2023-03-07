@@ -39,7 +39,6 @@ const CartBlock: React.FC<CartBlockProps> = ({products, active, setActive}) => {
         }))
         dispatch(deleteAllProducts())
         window.location.reload()
-        // console.log(products)
     };
 
     return (

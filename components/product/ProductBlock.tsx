@@ -38,7 +38,7 @@ const ProductBlock: React.FC<ProductWrapperProps> = ({product}) => {
     }
 
     return (
-        <div onClick={() => router.push(`/product/${product._id}`)} className={styles.mainWrapper}>
+        <div className={styles.mainWrapper}>
             {contextHolder}
             <h2 className={styles.title}>{product.name}</h2>
             <Swiper
@@ -58,7 +58,7 @@ const ProductBlock: React.FC<ProductWrapperProps> = ({product}) => {
                 ))}
             </Swiper>
             <div className={styles.btnsWrapper}>
-                <Button fullWidth children={`${priceReturn(product.price, product.salePrice)}`}/>
+                <Button onClick={() => router.push(`/product/${product._id}`)} fullWidth children={`${priceReturn(product.price, product.salePrice)}`}/>
                 <Button onClick={() => addToCartHandler({
                     _id: product._id,
                     name: product.name,

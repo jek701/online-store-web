@@ -58,24 +58,15 @@ const AddAddress: React.FC<AddAddressProps> = ({region, setCenter, setRegion, se
                 }}/>
                 <div className={styles.mapWrapper}>
                     <YMaps>
-                        <Map
-                            state={region}
-                            width="100%"
-                            height="100%"
+                        <Map state={region} width="100%" height="100%"
                             // @ts-ignore
                             onBoundsChange={ref => {
                                 setLoading(true)
                                 if (ref.originalEvent.newCenter !== region.center) {
-                                    setCenter({
-                                        lat: ref.originalEvent.newCenter[0],
-                                        lng: ref.originalEvent.newCenter[1]
-                                    })
+                                    setCenter({lat: ref.originalEvent.newCenter[0], lng: ref.originalEvent.newCenter[1]})
                                     // @ts-ignore
                                     setRegion(prevState => {
-                                            return {
-                                                ...prevState,
-                                                center: ref.originalEvent.newCenter,
-                                                zoom: ref.originalEvent.newZoom
+                                            return {...prevState, center: ref.originalEvent.newCenter, zoom: ref.originalEvent.newZoom
                                             }
                                         }
                                     )
